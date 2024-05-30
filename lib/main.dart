@@ -1,14 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:water_drink_reminder/core/constants.dart';
 import 'package:water_drink_reminder/core/firebase_options.dart';
 import 'package:water_drink_reminder/domain/entities/user.dart';
 import 'package:water_drink_reminder/domain/firebase_notification.dart';
-import 'package:water_drink_reminder/presentation/screens/home/cubit/home_cubit.dart';
 import 'package:water_drink_reminder/presentation/screens/home/home_page.dart';
-import 'package:water_drink_reminder/presentation/screens/login/cubit/login_cubit.dart';
 import 'package:water_drink_reminder/presentation/screens/login/login_page.dart';
 
 void main() async {
@@ -35,7 +33,10 @@ Future<Map<String, String?>> createInitialRoute(
 }
 
 class App extends StatelessWidget {
-  const App({super.key, required FireBaseNotofication fireBaseNotofication, required Map<String, String?> initialRoute})
+  const App(
+      {super.key,
+      required FireBaseNotofication fireBaseNotofication,
+      required Map<String, String?> initialRoute})
       : _fireBaseNotofication = fireBaseNotofication,
         _initialRoute = initialRoute;
 
@@ -44,13 +45,10 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => LoginCubit(fireBaseNotofication: _fireBaseNotofication)),
-        BlocProvider(create: (context) => HomeCubit(_fireBaseNotofication))
-      ],
+    return Provider.value(
+      value: _fireBaseNotofication,
       child: AppView(initialRoute: _initialRoute),
-    );
+      );
   }
 }
 

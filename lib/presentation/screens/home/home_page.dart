@@ -10,8 +10,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final fbn = FireBaseNotofication();
-    return BlocProvider(create: (_) => HomeCubit(fbn),
+    return BlocProvider(create: (_) => HomeCubit(context.read<FireBaseNotofication>()),
     child: HomeView(payload: payload));
   }
 }

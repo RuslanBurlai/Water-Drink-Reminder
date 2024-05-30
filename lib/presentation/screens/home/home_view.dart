@@ -131,7 +131,7 @@ class _MyHomeViewState extends State<HomeView> {
             Expanded(
               child: BlocBuilder<HomeCubit, HomeState>(
                 builder: (context, state) {
-                  return state is HomeLoaded
+                  return state is HomeLoaded && state.user.drinkedTime.isNotEmpty
                       ? ListView.builder(
                           itemCount: state.user.drinkedTime.length,
                           itemBuilder: (BuildContext context, int index) {
@@ -144,7 +144,7 @@ class _MyHomeViewState extends State<HomeView> {
                                   .format(state.user.drinkedTime[index])),
                             );
                           })
-                      : const SizedBox();
+                      : Center(child: Text('You haven\'t drunk water yet', style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w700)));
                 },
               ),
             ),
