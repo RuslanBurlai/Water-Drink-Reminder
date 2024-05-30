@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "680336052339",
+    "project_id": "waterdrinkreminder-23ede",
+    "storage_bucket": "waterdrinkreminder-23ede.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680336052339:android:d17b25a6890123ef8ada06",
+        "android_client_info": {
+          "package_name": "com.example.water_drink_reminder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFyWpTuufXSMf3JztekiMjYrHez7iHJoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
